@@ -1,0 +1,259 @@
+.lpbody{
+   margin: 0;
+   padding: 0;
+   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; 
+   background-color: rgba(8, 8, 8, 0.89);
+}
+
+.lpnavbar{
+    display: flex;
+    flex-direction: row;
+    position:relative;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    min-height: 100px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: transparent;
+    align-self: center;
+}
+
+.lpnavbar li{
+    margin: 0 5px;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+}
+.lpnavbar li:nth-child(2){
+    margin-top: -10px;
+    margin-right: 70px;
+}
+.lplogo img{
+    width: 180px;
+    height: 250px;
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+}
+.lplogo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+}
+.lpmain{
+    width: 100%;
+    margin-top: -100px;
+    background-size: cover;
+    align-items: center;
+    overflow-x: hidden;
+    justify-content: center;
+    display: flex;
+    background-position: center;
+    min-height: 710px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("https://wallpapercave.com/wp/wp3396924.jpg");
+}
+.lpbutton{
+    background-color: #e50914;
+    padding: 7px 17px;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.lparea{
+    color: white;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 70px;
+}
+.lparea h1{
+    font-size: 60px;
+    word-spacing: 15px;
+    line-height: 75px;
+}
+.lparea h3{
+    margin-top: -30px;
+    font-size: 27px;
+    font-weight: normal;
+}
+.lpsearch{
+    width: 150%;
+    background-color: none;
+    min-height: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    margin-top: 10px;
+}
+.lpbox{
+    width: 100%;
+    min-height: 65px;
+}
+.lptry{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    border: none;
+    background-color: #e50914;
+    color: white;
+    height: 65px;
+    width: 25%;
+    font-size: 30px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.lparea h4{
+    margin-top: 10px;
+    font-weight: normal;
+}
+.lpcontainer1{
+    width: 100%;
+    min-height: 460px;
+    background-color: black;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: left;
+}
+/* .container img{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    object-fit: contain;
+    object-position: center;
+    align-items: center;
+    max-width: 100%;
+    height: 350px;
+}
+.container1 .image{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    align-self: center;
+    object-fit: contain;
+} */
+/* .text{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: center;
+    align-content: center;
+}
+.text p{
+    font-size: 1.5 rem;
+    margin-top: 5px;
+}
+.text h1{
+    font-size: 3.125rem;
+}
+.question{
+    width: 100%;
+    min-height: 950px;
+    background-color: #000;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: center;
+}
+.question h1{
+    text-align: center;
+    color: white;
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.quest{
+    width: 51%;
+    min-height: 75px;
+    background-color: #303030;
+    color: white;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    text-align: left;
+    flex-direction: row;
+    margin: 5px 0;
+}
+.quest .textbox{
+    display: flex;
+    text-align: left;
+    flex-direction: row;
+    justify-items: center;
+    align-self: center;
+    font-size: 25px;
+    margin: 0 30px;
+    word-spacing: 5px;
+    text-align: left;
+}
+.quest i{
+    margin: 0 30px;
+    font-size: 40px;
+    color: rgb(255, 255, 255);
+}
+.quest:focus{
+    background-color: red;
+} */
+.search1{
+    width:50%;
+    background-color: none;
+    min-height: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    margin-top: 10px;
+}
+.fa-plus{
+    zoom: 60%;
+}
+.box1{
+    width: 100%;
+    min-height: 65px;
+}
+.try1{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #e50914;
+    min-height: 70px;
+    width: 70%;
+    color: white;
+    font-size: 20px;
+    margin: 50px 0;
+    text-transform: uppercase;
+}
+.fa-chevron-right{
+    margin-left: 20px;
+}
+.question h4{
+    color: white;
+    margin-top: -20px;
+    padding-bottom: 40px;
+}

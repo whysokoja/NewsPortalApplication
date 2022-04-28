@@ -1,0 +1,6 @@
+-- AlterTable
+ALTER TABLE `users` MODIFY `fname` VARCHAR(255) NOT NULL,
+    MODIFY `lname` VARCHAR(255) NOT NULL,
+    MODIFY `pass` VARCHAR(255) NOT NULL,
+    MODIFY `phoneNumber` VARCHAR(255) NOT NULL,
+    MODIFY `imageLink` VARCHAR(255) NOT NULL;

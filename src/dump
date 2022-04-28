@@ -1,0 +1,153 @@
+import React, { useState, useEffect, useRef } from "react";
+import {
+  StyleSheet,
+  Text,
+  RefreshControl,
+  View,
+  Button,
+  SafeAreaView,
+  ActivityIndicator,
+  TouchableOpacity,
+  FlatList,
+  Image
+} from "react-native";
+import { Linking, TouchableNativeFeedback } from 'react-native';
+import Globelstyles from "../util/Globelstyles";
+import LinearGradient from 'react-native-linear-gradient';
+import * as rssParser from 'react-native-rss-parser';
+import Modal from "react-native-modal"
+import HTMLView from 'react-native-htmlview';
+import { ScrollView } from "react-native-gesture-handler";
+import { withStyleAnimation } from "react-native-reanimated/lib/types/lib/reanimated2/animation";
+import { Modalize } from 'react-native-modalize';
+const rssURL = "https://crickettimes.com/feed/";
+const wait = (timeout) => {
+  return new Promise(resolve => setTimeout(resolve, timeout));
+}
+export default function HomeScreen({ navigation }) {
+  const [isModalVisible, setIsModalVisible] = React.useState(false);
+  const [refreshing, setRefreshing] = React.useState(false);
+  const handleModal = () => setIsModalVisible(() => !isModalVisible);
+  // managing state with 'useState'
+  const [isLoading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+  const [item, setItem] = useState([]);
+  // similar to 'componentDidMount', gets called once
+  //for refrsh
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    wait(2000).then(() => setRefreshing(false));
+  }, []);
+  //fetch
+  useEffect(() => {
+    fetch(rssURL)
+      .then((response) => response.text())
+      .then((responseData) => rssParser.parse(responseData))
+      .then((data) => setData(data))
+      .then((rss) => {
+      })
+      .catch((error) => alert(error)) // display errors
+      .finally(() => setLoading(false)); // change loading state
+  }, []);
+
+  const renderItem = ({ item }) => {
+    return (
+      <Text style={styles.title} >a</Text>
+    )
+  };
+  // and set isRefreshing to false at the end of your callApiMethod()
+  //}
+  // Also get call asynchronous function
+  // async function getMoviesAsync() {
+  //   try {
+  //     let response = await fetch(rssURL);
+  //     let rss = await response.rss();
+  //     setTitle(rss.title);
+  //     setLink(rss.link);
+  //     setThumbnail(rss.thumbnail)
+  //     setDescription(rss.items.description);
+  //     setLoading(false);
+  //   } catch (error) {
+  //     alert(error);
+  //   }
+  // }
+  return (
+    <SafeAreaView style={styles.container}>
+
+      {/* While fetching show the indicator, else show response*/}
+      {isLoading ? (
+        <ActivityIndicator />
+      ) : (
+
+        <LinearGradient colors={['#86A8E7', '#7F7FD5']} style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+          <FlatList
+            refreshControl={
+              <RefreshControl
+                refreshing={refreshing}
+                onRefresh={onRefresh}
+              />
+            }
+            data={data.items}
+            keyExtractor={(item) => String(item.id)}
+            renderItem={({ item }) => {
+              return (
+                <View style={[Globelstyles.NScreen]}>
+                  <TouchableOpacity
+                    onPress={handleModal}>
+                    <View style={styles.image}>
+                      <Image source={{ uri: item.thumbnail }} />
+                    </View>
+                    <Text style={styles.title} numberOfLines={2}>{item.title + '. ' + item.link}</Text>
+                    <Text style={styles.description} numberOfLines={2}>Description:{item.description}</Text>
+                  </TouchableOpacity>
+
+                </View>
+              );
+            }}
+          />
+        </LinearGradient>
+      )}
+      <View style={styles.bd}>
+        <Modal isVisible={isModalVisible}>
+          <ScrollView>
+            <HTMLView value={item.content} />
+            <Button title="Hide" onPress={handleModal} />
+          </ScrollView>
+        </Modal>
+      </View>
+    </SafeAreaView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'flex-start',
+    alignItems: "center",
+
+  },
+  title: {
+    justifyContent: 'center',
+    fontSize: 32,
+    fontWeight: "bold",
+    padding: 12,
+  },
+  image: {
+    borderWidth: 0,
+    height: 50,
+    width: 300,
+
+  },
+  description: {
+    fontSize: 14,
+    textAlign: 'center',
+    marginBottom: 18,
+    color: '#ff00ff',
+  },
+  bd: {
+    borderRadius: 15,
+    borderWidth: 1,
+    borderColor: "#000",
+    borderStyle: "solid",
+  }
+});
